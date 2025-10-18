@@ -1,4 +1,4 @@
-import { Prisma } from 'generated/prisma';
+import { Prisma } from 'prisma/src/generated/prisma';
 
 export const returnBoardObject: Prisma.BoardSelect = {
   id: true,
