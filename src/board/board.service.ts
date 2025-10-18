@@ -4,9 +4,9 @@ import {
   NotFoundException
 } from '@nestjs/common';
 import { CreateBoardDto } from './dto/create-board.dto';
-import { PrismaService } from 'src/prisma.service';
 import { returnBoardObject } from './return.board.object';
-import { Prisma } from 'generated/prisma/client';
+import { PrismaService } from 'src/prisma.service';
+import { Prisma } from 'generated/prisma';
 
 @Injectable()
 export class BoardService {

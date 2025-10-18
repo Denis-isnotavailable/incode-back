@@ -1,5 +1,5 @@
 import { IsOptional, IsString, MaxLength, IsEnum } from 'class-validator';
-import { Column } from 'generated/prisma/client';
+import { Column } from 'generated/prisma';
 
 export class UpdateCardDto {
   @IsOptional()
