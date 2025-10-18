@@ -1,0 +1,42 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Column {
+  ToDo
+  InProgress
+  Done
+}
+
+model Board {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  name String @unique @db.VarChar(25)
+
+  cards Card[]
+
+  @@map("board")
+}
+
+model Card {
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  title       String @db.VarChar(25)
+  description String @db.VarChar(250)
+  column      Column @default(ToDo)
+
+  boardId Int
+  board   Board @relation(fields: [boardId], references: [id], onDelete: Cascade)
+
+  @@map("card")
+}
