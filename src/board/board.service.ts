@@ -6,7 +6,7 @@ import {
 import { CreateBoardDto } from './dto/create-board.dto';
 import { returnBoardObject } from './return.board.object';
 import { PrismaService } from 'src/prisma.service';
-import { Prisma } from '@prisma/client';
+import { Prisma } from 'src/prisma';
 
 @Injectable()
 export class BoardService {

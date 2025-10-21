@@ -1,4 +1,4 @@
-import { Prisma } from '@prisma/client';
+import { Prisma } from 'src/prisma';
 
 export const returnBoardObject: Prisma.BoardSelect = {
   id: true,
